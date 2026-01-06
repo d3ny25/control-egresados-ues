@@ -251,6 +251,16 @@
 
 <div class="modal fade" id="modalEgresado" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+                        
         <form action="{{ route('egresados.store') }}" method="POST" class="modal-content">
             @csrf
 
@@ -456,6 +466,16 @@
 @endif
 
 @endsection
+
+@if ($errors->any())
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let modal = new bootstrap.Modal(document.getElementById('modalEgresado'));
+        modal.show();
+    });
+</script>
+@endif
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
