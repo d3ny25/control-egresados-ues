@@ -86,12 +86,20 @@
 
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">
-                            Iniciar sesión
-                        </a>
-                    </li>
+
+                    @auth
+                        <li class="nav-item">
+                            <form method="POST" action="/logout">
+                                @csrf
+                                <button class="btn btn-danger btn-sm">
+                                    Cerrar sesión
+                                </button>
+                            </form>
+                        </li>
+                    @endauth
+
                 </ul>
+
             </div>
 
         </div>

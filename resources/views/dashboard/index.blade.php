@@ -74,11 +74,6 @@
     @endif
 
 
-
-    <form method="POST" action="/logout">
-        @csrf
-        <button class="btn btn-danger">Cerrar Sesión</button>
-    </form>
 </div>
 
 <div class="card mt-4">
